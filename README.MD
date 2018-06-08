@@ -1,4 +1,4 @@
-"# Yandex.Market automation testing"
+"# Yandex.Market UI automation testing"
 
 Использовано:
 * maven
