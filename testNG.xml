@@ -1,0 +1,12 @@
+<suite name="Tests for Yandex.Market" verbose="1">
+    <test name="Regression tests">
+        <classes>
+            <class name="YandexMarketTests">
+                <methods>
+                    <include name="test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
