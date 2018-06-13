@@ -30,8 +30,10 @@ public class YandexMarketPage extends AbstractPage {
     @Step("Open Y.Market tablets page")
     public YandexMarketPage openTablets() {
         actions().moveToElement(MenuComputers).perform();
-        SubMenuTablets.shouldBe(Condition.visible).hover();
+        MenuComputers.shouldBe(Condition.visible).hover();
         actions().moveToElement(SubMenuTablets).perform();
+        SubMenuTablets.shouldBe(Condition.visible).hover();
+
         SubMenuTablets.click();
         $(By.xpath("//div/h1[@title='Планшеты']")).shouldBe(Condition.visible);
         return new YandexMarketPage();
