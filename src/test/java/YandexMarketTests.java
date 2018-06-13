@@ -27,8 +27,8 @@ public class YandexMarketTests extends AbstractTest {
         YandexMarketPage marketPage = ymain.openMarketPage();
         marketPage = marketPage.openTablets();
         AllFIltersPage fIltersPage = marketPage.openAllFilters();
-        fIltersPage.setPriceFrom(20000.0);
-        fIltersPage.setPriceTo(25000.0);
+        fIltersPage.setPriceFrom(2000.0);
+        fIltersPage.setPriceTo(250000.0);
         fIltersPage.selectManufacturer("Acer");
         marketPage = fIltersPage.apply();
         List<SelenideElement> resultList = $$(By.xpath("//*[contains(@class,'n-snippet-card2__title')]"));

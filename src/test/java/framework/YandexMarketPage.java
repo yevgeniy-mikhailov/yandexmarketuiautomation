@@ -30,11 +30,10 @@ public class YandexMarketPage extends AbstractPage {
     @Step("Open Y.Market tablets page")
     public YandexMarketPage openTablets() {
         actions().moveToElement(MenuComputers).perform();
-        MenuComputers.shouldBe(Condition.visible).hover();
+        MenuComputers.hover();
+        SubMenuTablets.shouldBe(Condition.visible);
         actions().moveToElement(SubMenuTablets).perform();
-        SubMenuTablets.shouldBe(Condition.visible).hover();
-
-        SubMenuTablets.click();
+        SubMenuTablets.hover().click();
         $(By.xpath("//div/h1[@title='Планшеты']")).shouldBe(Condition.visible);
         return new YandexMarketPage();
     }
@@ -49,7 +48,6 @@ public class YandexMarketPage extends AbstractPage {
     @Step("Search item: {0}")
     public YandexMarketProductPage search(String srch) {
         InputSearch.clear();
-        System.out.println("Searchavble:" + srch);
         InputSearch.setValue(srch.toLowerCase());
         ButtonSearch.click();
         MenuComputers.shouldBe(Condition.visible);
