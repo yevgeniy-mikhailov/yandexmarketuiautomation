@@ -47,7 +47,8 @@ public class YandexMarketPage extends AbstractPage {
     @Step("Search item: {0}")
     public YandexMarketProductPage search(String srch) {
         InputSearch.clear();
-        InputSearch.setValue(srch);
+        System.out.println("Searchavble:" + srch);
+        InputSearch.setValue(srch.toLowerCase());
         ButtonSearch.click();
         MenuComputers.shouldBe(Condition.visible);
         return new YandexMarketProductPage();
