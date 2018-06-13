@@ -5,6 +5,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.*;
@@ -35,7 +36,6 @@ public class AbstractTest {
             sleep(500);
         }
     }
-
     @BeforeClass
     @Step("Clear cache for IE")
     public void clearIeCache() {

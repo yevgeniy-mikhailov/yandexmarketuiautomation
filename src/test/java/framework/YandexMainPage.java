@@ -1,8 +1,10 @@
 package framework;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class YandexMainPage extends AbstractPage{
@@ -10,7 +12,8 @@ public class YandexMainPage extends AbstractPage{
 
     @Step("Open Yandex.Market")
     public YandexMarketPage openMarketPage() {
-        TabMarket.click();
+        Selenide.open("https://www.yandex.ru");
+        TabMarket.hover().click();
         return new YandexMarketPage();
     }
 }

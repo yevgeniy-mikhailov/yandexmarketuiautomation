@@ -1,8 +1,8 @@
 import com.codeborne.selenide.SelenideElement;
 import framework.AllFIltersPage;
-import framework.YandexMarketProductPage;
 import framework.YandexMainPage;
 import framework.YandexMarketPage;
+import framework.YandexMarketProductPage;
 import helper.ScreenShotOnFailListener;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
@@ -25,8 +25,7 @@ public class YandexMarketTests extends AbstractTest {
     public void yandexMarketTest() {
         YandexMainPage ymain = new YandexMainPage();
         YandexMarketPage marketPage = ymain.openMarketPage();
-        marketPage.clickOnComputers();
-        marketPage.clickTablets();
+        marketPage = marketPage.openTablets();
         AllFIltersPage fIltersPage = marketPage.openAllFilters();
         fIltersPage.setPriceFrom(20000.0);
         fIltersPage.setPriceTo(25000.0);

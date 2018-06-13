@@ -6,15 +6,16 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.actions;
 
 public class YandexMarketPage extends AbstractPage {
     SelenideElement MenuComputers = $(By.xpath("//li[contains(@class,'topmenu')][@data-department='Компьютеры']/a"));
-    SelenideElement SubMenuTablets = $(By.xpath("//div/a[@class='link catalog-menu__list-item metrika i-bem metrika_js_inited'][text()='Планшеты']"));
+    SelenideElement SubMenuTablets = $(By.xpath("//div/a[text()='Планшеты'][@class='link topmenu__subitem']"));
     SelenideElement OpenAllFilters = $(By.xpath("//a[text()='Перейти ко всем фильтрам']"));
     SelenideElement InputSearch = $(By.id("header-search"));
     SelenideElement ButtonSearch = $(By.xpath("//button[@type='submit']/span[@class='button2__text']"));
 
-    @Step("Move cursor to Computers")
+/*    @Step("Move cursor to Computers")
     public void clickOnComputers() {
         MenuComputers.hover().click();
         $(By.xpath("//div/h1[@title='Компьютерная техника']")).shouldBe(Condition.visible);
@@ -24,6 +25,15 @@ public class YandexMarketPage extends AbstractPage {
     public void clickTablets() {
         SubMenuTablets.hover().click();
         $(By.xpath("//div/h1[@title='Планшеты']")).shouldBe(Condition.visible);
+    }*/
+
+    @Step("Open Y.Market tablets page")
+    public YandexMarketPage openTablets() {
+        MenuComputers.hover();
+        actions().moveToElement(MenuComputers);
+        SubMenuTablets.shouldBe(Condition.visible).hover().click();
+        $(By.xpath("//div/h1[@title='Планшеты']")).shouldBe(Condition.visible);
+        return new YandexMarketPage();
     }
 
     @Step("Open all filters")
@@ -35,6 +45,7 @@ public class YandexMarketPage extends AbstractPage {
 
     @Step("Search item: {0}")
     public YandexMarketProductPage search(String srch) {
+        InputSearch.clear();
         InputSearch.setValue(srch);
         ButtonSearch.click();
         MenuComputers.shouldBe(Condition.visible);
