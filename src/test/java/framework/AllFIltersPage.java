@@ -21,7 +21,6 @@ public class AllFIltersPage extends AbstractPage {
 
     @Step("Set priceTo = {0}")
     public void setPriceTo(Double priceTo) {
-
         PriceTo.shouldBe(Condition.visible).clear();
         PriceTo.shouldBe(Condition.visible).setValue(Double.toString(priceTo));
     }
